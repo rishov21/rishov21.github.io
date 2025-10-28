@@ -1,0 +1,202 @@
+<div class="home-container">
+  <section class="hero-section mb-4" style="margin-top: 60px;">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <mat-icon class="hero-icon">calendar_today</mat-icon>
+        Angular Nepali Datepicker
+      </h1>
+      <p class="hero-subtitle">
+        A powerful, lightweight, and responsive Nepali datepicker component (wrapper) for Angular applications.
+        Built with pure JavaScript and designed for modern web applications. Supports both view engine and ivy.
+      </p>
+      <div class="hero-actions">
+        <button mat-raised-button color="primary" routerLink="/supported-options">
+          <mat-icon>code</mat-icon>
+          View Examples
+        </button>
+        <button mat-stroked-button routerLink="/documentation">
+          <mat-icon>play_arrow</mat-icon>
+          View Documentation
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title mb-4">Key Features</h2>
+    <div class="features-grid">
+      @for (feature of features; track feature.title) {
+      <mat-card class="feature-card">
+        <mat-card-content>
+          <div class="feature-icon">
+            <mat-icon>{{ feature.icon }}</mat-icon>
+          </div>
+          <h3 class="feature-title">{{ feature.title }}</h3>
+          <p class="feature-description">{{ feature.description }}</p>
+        </mat-card-content>
+      </mat-card>
+      }
+    </div>
+  </section>
+
+  <section class="mt-4">
+    <h2 class="section-title">Quick Start</h2>
+
+    <div class="features-grid mt-4">
+      <mat-card class="feature-card" style="height: 50vh;">
+        <mat-card-content class="datepicker-center">
+          <rtc-nepali-datepicker #lightPicker [options]="datepickerOptionsLight"
+            [value]="selectedDateLight" [pickerId]="lightPickerId" (dateChange)="onDateSelectLight($event)">
+          </rtc-nepali-datepicker>
+        </mat-card-content>
+          Selected Date: {{ selectedDateLight }}
+      </mat-card>
+
+
+      <mat-card class="feature-card" style="height: 50vh;">
+        <mat-card-content class="datepicker-center">
+          <rtc-nepali-datepicker #darkPicker [options]="datepickerOptionsDark"
+            [value]="selectedDateDark" [pickerId]="darkPickerId" (dateChange)="onDateSelectDark($event)">
+          </rtc-nepali-datepicker>
+        </mat-card-content>
+        Selected Date: {{ selectedDateDark }}
+      </mat-card>
+    </div>
+
+    <mat-card class="start-card mt-4">
+      <mat-card-header>
+        <mat-card-title><h4>Try It Out</h4></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="datepicker-container">
+          
+          <div style="width: 260px;">
+            <label class="datepicker-label">Light Mode</label>
+            <rtc-nepali-datepicker [options]="datepickerOptionsLightInput"
+             [pickerId]="lightPickerIdInput">
+          </rtc-nepali-datepicker>
+          </div>
+          
+          <div style="width: 260px;">
+            <label class="datepicker-label">Dark Mode</label>
+            <rtc-nepali-datepicker [options]="datepickerOptionsDarkInput"
+             [pickerId]="darkPickerIdInput">
+          </rtc-nepali-datepicker>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="start-card mt-4">
+      <mat-card-header>
+        <mat-card-title><h4>Installation</h4></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <h6>via npm:</h6>
+        <div class="code-block">
+          <code class="code-font">npm i @rishovt/angular-nepali-datepicker --save</code>
+          <button mat-icon-button class="copy-button" (click)="copyToClipboard('npm i @rishovt/angular-nepali-datepicker --save')">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+      
+      <mat-card-content class="mt-2">
+        <h6>via yarn:</h6>
+        <div class="code-block">
+          <code class="code-font">yarn add @rishovt/angular-nepali-datepicker</code>
+          <button mat-icon-button class="copy-button" (click)="copyToClipboard('yarn add @rishovt/angular-nepali-datepicker')">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="start-card">
+      <mat-card-header>
+        <mat-card-title><h4>Module Imports</h4></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="code-block">
+          <code class="code-font">{{ importCode }}</code>
+          <button mat-icon-button class="copy-button" (click)="copyToClipboard(importCode)">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="start-card">
+      <mat-card-header>
+        <mat-card-title><h4>Angular JSON</h4></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <h6>You need to add the following to your angular.json file for the consumer to be able to know the js and css paths:</h6>
+        <div class="code-block">
+          <code class="code-font">{{ angularJsonCode }}</code>
+          <button mat-icon-button class="copy-button" (click)="copyToClipboard(angularJsonCode)">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="start-card">
+      <mat-card-header>
+        <mat-card-title><h4>Basic Usage</h4></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <h6>HTML Snippet:</h6>
+        <div class="code-block">
+          <code class="code-font">{{ basicUsageCodeHtml }}</code>
+          <button mat-icon-button class="copy-button" (click)="copyToClipboard(basicUsageCodeHtml)">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+      
+      
+      <mat-card-content class="mt-2">
+        <h6>TS Snippet:</h6>
+        <div class="code-block">
+          <code class="code-font">{{ basicUsageCodeTs }}</code>
+          <button mat-icon-button class="copy-button" (click)="copyToClipboard(basicUsageCodeTs)">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  <section class="next-steps-section">
+    <h2 class="section-title">What's Next?</h2>
+    <div class="steps-grid">
+      <mat-card class="step-card" routerLink="/supported-options">
+        <mat-card-content>
+          <mat-icon class="step-icon">code</mat-icon>
+          <h3>Explore Examples</h3>
+          <p>See comprehensive examples covering all features</p>
+          <button mat-button color="primary">View Examples →</button>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="step-card" routerLink="/supported-options">
+        <mat-card-content>
+          <mat-icon class="step-icon">settings</mat-icon>
+          <h3>Supported Options</h3>
+          <p>See all the features, configurations, and options that this Nepali Datepicker supports</p>
+          <button mat-button color="primary">View Options →</button>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="step-card" routerLink="/documentation">
+        <mat-card-content>
+          <mat-icon class="step-icon">api</mat-icon>
+          <h3>Documentation</h3>
+          <p>Complete documentation of all methods</p>
+          <button mat-button color="primary">View Documentation →</button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+</div>

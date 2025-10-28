@@ -1,0 +1,45 @@
+name: Deploy Angular Datepicker Documentation/Demo to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repo
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Setup Node
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.20.0
+          cache: 'npm'
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Build Angular app
+      - name: Build Angular App
+        run: npx ng build --configuration production --base-href /
+
+      # 5. Verify build output
+      - name: Verify Build Output
+        run: ls -la dist/angular-nepali-datepicker-demo/browser
+
+      # 6. Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist/angular-nepali-datepicker-demo/browser  # Updated to deploy browser folder
+          clean: true

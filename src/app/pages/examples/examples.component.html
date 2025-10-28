@@ -1,0 +1,838 @@
+<div class="home-container">
+  <div class="documentation-container" style="margin-top: 60px;">
+    <div class="documentation-header">
+      <h1 class="page-title">
+        <mat-icon>api</mat-icon>
+        Supported options in calendar with examples
+      </h1>
+    </div>
+  </div>
+
+  <mat-sidenav-container>
+    <mat-sidenav mode="side" opened style="margin-bottom: 116px; margin-top:127px; position: fixed;">
+      <div class="sidebar">
+        <mat-nav-list>
+          <mat-list-item (click)="scrollToFunction('playground')" class="function-item">
+            <div class="function-list-content">
+              <span class="function-name">Playground</span>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item (click)="scrollToFunction('default-date')" class="function-item">
+            <div class="function-list-content">
+              <span class="function-name">Default Date</span>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item (click)="scrollToFunction('mini-english-dates')" class="function-item">
+            <div class="function-list-content">
+              <span class="function-name">Mini English Dates</span>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item (click)="scrollToFunction('date-formats')" class="function-item">
+            <div class="function-list-content">
+              <span class="function-name">Date Formats</span>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item (click)="scrollToFunction('min-max-dates')" class="function-item">
+            <div class="function-list-content">
+              <span class="function-name">Min and Max Dates</span>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item (click)="scrollToFunction('onselect-callback')" class="function-item">
+            <div class="function-list-content">
+              <span class="function-name">onSelect Callback</span>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item (click)="scrollToFunction('onclose-callback')" class="function-item">
+            <div class="function-list-content">
+              <span class="function-name">onClose Callback</span>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item (click)="scrollToFunction('disable-dates')" class="function-item">
+            <div class="function-list-content">
+              <span class="function-name">Disable Dates</span>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item (click)="scrollToFunction('dark-mode')" class="function-item">
+            <div class="function-list-content">
+              <span class="function-name">Dark Mode</span>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item (click)="scrollToFunction('animation')" class="function-item">
+            <div class="function-list-content">
+              <span class="function-name">Animation</span>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item (click)="scrollToFunction('range-selection')" class="function-item">
+            <div class="function-list-content">
+              <span class="function-name">Range Selection</span>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item (click)="scrollToFunction('multiple-selection')" class="function-item">
+            <div class="function-list-content">
+              <span class="function-name">Multiple Selection</span>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item (click)="scrollToFunction('unicode-date')" class="function-item">
+            <div class="function-list-content">
+              <span class="function-name">Unicode Date</span>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item (click)="scrollToFunction('language-english')" class="function-item">
+            <div class="function-list-content">
+              <span class="function-name">Language English</span>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+
+          <mat-list-item (click)="scrollToFunction('inline')" class="function-item">
+            <div class="function-list-content">
+              <span class="function-name">Inline</span>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </mat-nav-list>
+      </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content style="margin-bottom: -16px;">
+      <div class="content">
+
+        <section class="next-steps-section">
+          <h2 class="section-title">Default Date</h2>
+
+          <div class="steps-grid">
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Single</label>
+                  <rtc-nepali-datepicker [value]="optionsSingleValue" [options]="optionsSingle"
+                    [pickerId]="optionsSingleId" (dateChange)="onDateSelect($event, 'optionsSingle')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{ value: "2082-12-15" }' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsSingleValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Multiple</label>
+                  <rtc-nepali-datepicker [value]="optionsMultipleValue" [options]="optionsMultiple"
+                    [pickerId]="optionsMultipleId" (dateChange)="onDateSelect($event, 'optionsMultiple')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{ value: "2082-06-31, 2082-07-01", multiple: true }' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsMultipleValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Range</label>
+                  <rtc-nepali-datepicker [value]="optionsRangeValue" [options]="optionsRange"
+                    [pickerId]="optionsRangeId" (dateChange)="onDateSelect($event, 'optionsRange')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{ value: "2082-06-31, 2082-07-01", multiple: true }' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsRangeValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </section>
+
+        <section class="next-steps-section">
+          <h2 class="section-title">Mini English Dates</h2>
+          <h6 class="section-subtitle">
+            This option shows the equivalent English day on the right bottom
+            corner of each cell. You can enable it by using
+            <code class="inline-code">{{ '{ miniEnglishDates: true }' }} </code> option.
+          </h6>
+          <div class="steps-grid">
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">LightMode</label>
+                  <rtc-nepali-datepicker [value]="optionsMiniEnglishValue" [options]="optionsMiniEnglish"
+                    [pickerId]="optionsMiniEnglishId" (dateChange)="onDateSelect($event, 'optionsMiniEnglish')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{miniEnglishDates:true, mode: "dark"}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsMiniEnglishValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Dark Mode</label>
+                  <rtc-nepali-datepicker [value]="optionsMiniEnglishDarkValue" [options]="optionsMiniEnglishDark"
+                    [pickerId]="optionsMiniEnglishDarkId" (dateChange)="onDateSelect($event, 'optionsMiniEnglishDark')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{miniEnglishDarkDates:true, mode: "dark"}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsMiniEnglishDarkValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+          </div>
+        </section>
+
+        <section class="next-steps-section">
+          <h2 class="section-title">Date Formats</h2>
+
+          <h6 class="section-subtitle">
+            You can change the date format by using <code class="inline-code">{{ '{dateFormat: "format"}' }} </code>
+            option. Available formats are:</h6>
+
+          <div class="steps-grid">
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">YYYY-MM-DD</label>
+                  <rtc-nepali-datepicker [value]="optionsFormat1Value" [options]="optionsFormat1"
+                    [pickerId]="optionsFormat1Id" (dateChange)="onDateSelect($event, 'optionsFormat1')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{dateFormat:"YYYY-MM-DD"}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsFormat1Value }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">YYYY/MM/DD</label>
+                  <rtc-nepali-datepicker [value]="optionsFormat2Value" [options]="optionsFormat2"
+                    [pickerId]="optionsFormat2Id" (dateChange)="onDateSelect($event, 'optionsFormat2')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{dateFormat:"YYYY/MM/DD"}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsFormat2Value }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">YYYY.MM.DD</label>
+                  <rtc-nepali-datepicker [value]="optionsFormat3Value" [options]="optionsFormat3"
+                    [pickerId]="optionsFormat3Id" (dateChange)="onDateSelect($event, 'optionsFormat3')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{"dateFormat:"YYYY.MM.DD"}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsFormat3Value }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">DD-MM-YYYY</label>
+                  <rtc-nepali-datepicker [value]="optionsFormat4Value" [options]="optionsFormat4"
+                    [pickerId]="optionsFormat4Id" (dateChange)="onDateSelect($event, 'optionsFormat4')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{dateFormat:"DD-MM-YYYY"}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsFormat4Value }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">DD/MM/YYYY</label>
+                  <rtc-nepali-datepicker [value]="optionsFormat5Value" [options]="optionsFormat5"
+                    [pickerId]="optionsFormat5Id" (dateChange)="onDateSelect($event, 'optionsFormat5')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{dateFormat:"DD/MM/YYYY"}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsFormat5Value }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">DD.MM.YYYY</label>
+                  <rtc-nepali-datepicker [value]="optionsFormat6Value" [options]="optionsFormat6"
+                    [pickerId]="optionsFormat6Id" (dateChange)="onDateSelect($event, 'optionsFormat6')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{dateFormat:"DD.MM.YYYY"}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsFormat6Value }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">MM-DD-YYYY</label>
+                  <rtc-nepali-datepicker [value]="optionsFormat7Value" [options]="optionsFormat7"
+                    [pickerId]="optionsFormat7Id" (dateChange)="onDateSelect($event, 'optionsFormat7')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{dateFormat:"MM-DD-YYYY"}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsFormat7Value }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">MM/DD/YYYY</label>
+                  <rtc-nepali-datepicker [value]="optionsFormat8Value" [options]="optionsFormat8"
+                    [pickerId]="optionsFormat8Id" (dateChange)="onDateSelect($event, 'optionsFormat8')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{dateFormat:"MM/DD/YYYY"}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsFormat8Value }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </section>
+
+        <section class="next-steps-section" *ngIf="currentDate !== undefined">
+          <h2 class="section-title">Min and Max Dates</h2>
+
+          <h6 class="section-subtitle">
+            You can set minimum and maximum dates by using <code
+              class="inline-code">{{ '{minDate: "date", maxDate: "date"}' }}</code> options.
+            The date format should match the dateFormat option. For example, if you are
+            using <code class="inline-code">{{ '{dateFormat: "YYYY-MM-DD"}' }}</code>, the date should be in
+            'YYYY-MM-DD' format.
+          </h6>
+
+          <div class="steps-grid">
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Minimum Date</label>
+                  <rtc-nepali-datepicker [value]="optionsMinDateValue" [options]="optionsMinDate"
+                    [pickerId]="optionsMinDateId" (dateChange)="onDateSelect($event, 'optionsMinDate')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{minDate: {year: 2082, month: 6,day: 26}}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsMinDateValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Maximum Date</label>
+                  <rtc-nepali-datepicker [value]="optionsMaxDateValue" [options]="optionsMaxDate"
+                    [pickerId]="optionsMaxDateId" (dateChange)="onDateSelect($event, 'optionsMaxDate')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{dateFormat:"YYYY-MM-DD"}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsMaxDateValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Minimum and Maximum Date</label>
+                  <rtc-nepali-datepicker [value]="optionsMinMaxValue" [options]="optionsMinMax"
+                    [pickerId]="optionsMinMaxId" (dateChange)="onDateSelect($event, 'optionsMinMax')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{dateFormat:"YYYY-MM-DD"}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsMinMaxValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+
+          </div>
+        </section>
+
+        <section class="next-steps-section">
+          <h2 class="section-title">onSelect Callback (Event Binding)</h2>
+
+          <h6 class="section-subtitle">
+            You can use
+            <code class="inline-code">
+  &lt;rtc-nepali-datepicker&gt; 
+  (dateChange)="onDateSelect($event)" 
+  &lt;/rtc-nepali-datepicker&gt;
+</code> to get the selected date.
+            The date will be passed as a parameter to the function as DateObject. You can use this event to perform any
+            action after selecting the date.
+            Note that this is different than using the options object.
+          </h6>
+
+          <div class="steps-grid">
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <rtc-nepali-datepicker [value]="optionsOnSelectValue" [options]="optionsOnSelect"
+                    [pickerId]="optionsOnSelectId" (dateChange)="onDateSelect($event, 'optionsOnSelect')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">&lt;rtc-nepali-datepicker&gt;
+                  (dateChange)="onDateSelect($event)"
+                  &lt;/rtc-nepali-datepicker&gt;</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsOnSelectValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+
+          </div>
+        </section>
+
+        <section class="next-steps-section">
+          <h2 class="section-title">onClose Callback</h2>
+
+          <h6 class="section-subtitle">
+            You can use <code
+              class="inline-code">{{ 'onClose: (date: any) => {console.log("Datepicker closed");}' }} </code> option to
+            get the selected dates array when the datepicker is closed.
+            The date array will be passed as a parameter to the function. You can use this option to perform any action
+            after closing the datepicker.
+          </h6>
+
+          <div class="steps-grid">
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <rtc-nepali-datepicker [value]="optionsOnCloseValue" [options]="optionsOnClose"
+                    [pickerId]="optionsOnCloseId" (dateChange)="onDateSelect($event, 'optionsOnClose')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ 'onClose: (date: any) => {console.log("Datepicker closed");}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsOnCloseValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+
+          </div>
+        </section>
+
+        <section class="next-steps-section" *ngIf="currentDate !== undefined">
+          <h2 class="section-title">Disable Dates</h2>
+
+          <h6 class="section-subtitle">
+            You can disable specific dates by using <code
+              class="inline-code">{{ "{disableDates: ['YYYY-MM-DD', ...]}" }}</code> option. You can also disable
+            multiple dates by passing an array of dates. The date format should match the dateFormat option.
+            For example, if you are using <code class="inline-code">{{ "{dateFormat: 'YYYY-MM-DD'}" }}</code> , the date
+            should be in 'YYYY-MM-DD' format.
+          </h6>
+
+          <div class="steps-grid">
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Disable Today</label>
+                  <rtc-nepali-datepicker [value]="optionsDisableTodayValue" [options]="optionsDisableToday"
+                    [pickerId]="optionsDisableTodayId" (dateChange)="onDateSelect($event, 'optionsDisableToday')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{disableToday:true}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsDisableTodayValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Disable Date</label>
+                  <rtc-nepali-datepicker [value]="optionsDisableDateValue" [options]="optionsDisableDate"
+                    [pickerId]="optionsDisableDateId" (dateChange)="onDateSelect($event, 'optionsDisableDate')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{disableDates:["2082-6-32"]}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsDisableDateValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Disable Dates</label>
+                  <rtc-nepali-datepicker [value]="optionsDisableDatesValue" [options]="optionsDisableDates"
+                    [pickerId]="optionsDisableDatesId" (dateChange)="onDateSelect($event, 'optionsDisableDates')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{disableDates:["2082-6-1","2082-6-15","2082-6-28"]}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsDisableDatesValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Disable Days Before</label>
+                  <rtc-nepali-datepicker [value]="optionsDisableBeforeValue" [options]="optionsDisableBefore"
+                    [pickerId]="optionsDisableBeforeId" (dateChange)="onDateSelect($event, 'optionsDisableBefore')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{disableDaysBefore:5}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsDisableBeforeValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Disable Days After</label>
+                  <rtc-nepali-datepicker [value]="optionsDisableAfterValue" [options]="optionsDisableAfter"
+                    [pickerId]="optionsDisableAfterId" (dateChange)="onDateSelect($event, 'optionsDisableAfter')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{disableDaysAfter:5}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsDisableAfterValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Disable Days Before & After</label>
+                  <rtc-nepali-datepicker [value]="optionsDisableBetweenValue" [options]="optionsDisableBetween"
+                    [pickerId]="optionsDisableBetweenId" (dateChange)="onDateSelect($event, 'optionsDisableBetween')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{disableDaysBefore:5, disableDaysAfter:5}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsDisableBetweenValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+          </div>
+        </section>
+
+        <section class="next-steps-section">
+          <h2 class="section-title">Animation</h2>
+
+          <h6 class="section-subtitle">
+            You can change the animation of the datepicker by
+            using <code class="inline-code">{{"{animation: 'animation'}"}}</code> option. Available animations are:
+          </h6>
+
+          <div class="steps-grid">
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Slide</label>
+                  <rtc-nepali-datepicker [value]="optionsAnimationSlideValue" [options]="optionsAnimationSlide"
+                    [pickerId]="optionsAnimationSlideId" (dateChange)="onDateSelect($event, 'optionsAnimationSlide')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{animation:"slide"}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsAnimationSlideValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Fade</label>
+                  <rtc-nepali-datepicker [value]="optionsAnimationFadeValue" [options]="optionsAnimationFade"
+                    [pickerId]="optionsAnimationFadeId" (dateChange)="onDateSelect($event, 'optionsAnimationFade')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{animation:"fade"}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsAnimationFadeValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+          </div>
+        </section>
+
+        <section class="next-steps-section">
+          <h2 class="section-title">Range Selection</h2>
+
+          <h6 class="section-subtitle">
+            For choosing range of dates use parameter
+            <code class="inline-code">{{"{range: true}"}}</code>. After selecting both dates you could correct them by
+            dragging active dates.
+          </h6>
+
+          <div class="steps-grid">
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Range Selection</label>
+                  <rtc-nepali-datepicker [value]="optionsRangeSelectionValue" [options]="optionsRangeSelection"
+                    [pickerId]="optionsRangeSelectionId" (dateChange)="onDateSelect($event, 'optionsRangeSelection')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{range:true}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsRangeSelectionValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </section>
+
+        <section class="next-steps-section">
+          <h2 class="section-title">Multiple Selection</h2>
+
+          <h6 class="section-subtitle">
+            For choosing multiple dates use parameter
+            <code class="inline-code">{{"{multiple: true}"}}</code>. You can select multiple dates by clicking on the
+            dates. The selected dates will be highlighted.
+          </h6>
+          <div class="steps-grid">
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Range Selection</label>
+                  <rtc-nepali-datepicker [value]="optionsMultipleSelectionValue" [options]="optionsMultipleSelection"
+                    [pickerId]="optionsMultipleSelectionId"
+                    (dateChange)="onDateSelect($event, 'optionsMultipleSelection')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{multiple:true}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsMultipleSelectionValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </section>
+
+        <section class="next-steps-section">
+          <h2 class="section-title">Unicode Date</h2>
+
+          <h6 class="section-subtitle">
+            You can enable unicode date format by using
+            <code class="inline-code">{{"{unicodeDate: true}"}}</code> option. This will insert the date in Nepali
+            unicode format.
+          </h6>
+          <div class="steps-grid">
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <rtc-nepali-datepicker [value]="optionsUnicodeValue" [options]="optionsUnicode"
+                    [pickerId]="optionsUnicodeId" (dateChange)="onDateSelect($event, 'optionsUnicode')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ '{unicodeDate:true}' }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsUnicodeValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </section>
+
+        <section class="next-steps-section">
+          <h2 class="section-title">Language English</h2>
+
+          <h6 class="section-subtitle">
+            You can change the language of the datepicker by using
+            <code class="inline-code">{{"{language: 'language'}"}}</code> option. This option will show the datepicker
+            year, month and dates in english.
+          </h6>
+          <div class="steps-grid">
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <rtc-nepali-datepicker [value]="optionsLanguageValue" [options]="optionsLanguage"
+                    [pickerId]="optionsLanguageId" (dateChange)="onDateSelect($event, 'optionsLanguage')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ "{language: 'language'}" }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsLanguageValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </section>
+
+        <section class="next-steps-section">
+          <h2 class="section-title">Inline</h2>
+
+          <h6 class="section-subtitle">
+            You can show the datepicker inline by using
+            <code class="inline-code">{{"{inline: true}"}}</code> option. This will show the datepicker below the input
+            field without any popup.
+          </h6>
+          <div class="steps-grid">
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Inline Default</label>
+                  <rtc-nepali-datepicker #optionsInlineDiv [value]="optionsInlineValue" [options]="optionsInline"
+                    [pickerId]="optionsInlineId" (dateChange)="onDateSelect($event, 'optionsInline')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ "{inline: true}" }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsInlineValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Inline Dark Mode</label>
+                  <rtc-nepali-datepicker #optionsInlineDarkDiv [value]="optionsInlineDarkValue"
+                    [options]="optionsInlineDark" [pickerId]="optionsInlineDarkId"
+                    (dateChange)="onDateSelect($event, 'optionsInlineDark')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ "{inline: true, mode: 'dark'}" }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsInlineDarkValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Inline English Dates</label>
+                  <rtc-nepali-datepicker #optionsInlineEnglishDiv [value]="optionsInlineEnglishValue"
+                    [options]="optionsInlineEnglish" [pickerId]="optionsInlineEnglishId"
+                    (dateChange)="onDateSelect($event, 'optionsInlineEnglish')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ "{inline: true, language: 'english'}" }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsInlineEnglishValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Inline English Dates Dark Mode</label>
+                  <rtc-nepali-datepicker #optionsInlineEnglishDarkDiv [value]="optionsInlineEnglishDarkValue"
+                    [options]="optionsInlineEnglishDark" [pickerId]="optionsInlineEnglishDarkId"
+                    (dateChange)="onDateSelect($event, 'optionsInlineEnglishDark')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ "{inline: true, language: 'english', mode: 'dark'}" }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsInlineEnglishDarkValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Inline Mini English Dates</label>
+                  <rtc-nepali-datepicker #optionsInlineMiniEnglishDiv [value]="optionsInlineMiniEnglishValue"
+                    [options]="optionsInlineMiniEnglish" [pickerId]="optionsInlineMiniEnglishId"
+                    (dateChange)="onDateSelect($event, 'optionsInlineMiniEnglish')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ "{inline: true, miniEnglishDates: true}" }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsInlineMiniEnglishValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="step-card">
+              <mat-card-content>
+                <div style="width: 260px;">
+                  <label class="datepicker-label">Inline Mini English Dates Dark Mode</label>
+                  <rtc-nepali-datepicker #optionsInlineMiniEnglishDarkDiv [value]="optionsInlineMiniEnglishDarkValue"
+                    [options]="optionsInlineMiniEnglishDark" [pickerId]="optionsInlineMiniEnglishDarkId"
+                    (dateChange)="onDateSelect($event, 'optionsInlineMiniEnglishDark')">
+                  </rtc-nepali-datepicker>
+                </div>
+                <div class="example-code">{{ "{inline: true, miniEnglishDates: true, mode: 'dark'}" }}</div>
+                <div class="value-display">
+                  Selected Date: {{ optionsInlineMiniEnglishDarkValue }}
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+
+          </div>
+        </section>
+
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>

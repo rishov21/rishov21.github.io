@@ -1,0 +1,159 @@
+.sidenav {
+  width: 250px;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-button {
+  margin-right: 16px;
+}
+
+.toolbar-left-spacer {
+  width: 200px;
+}
+
+.app-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  gap: 6px;
+  .logo-icon {
+    margin-right: 8px;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  
+  mat-icon {
+    margin-right: 8px;
+  }
+}
+
+.content {
+  padding: 30px 14px 14px ;
+  min-height: calc(100vh - 64px);
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #1e1e1e;
+  color: #fff;
+  padding: 18px;
+  z-index: 1002;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  
+  a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: #1976d2;
+    }
+    
+    mat-icon {
+      margin-right: 4px;
+      font-size: 18px;
+    }
+  }
+}
+
+.footer-credit {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+// Dark theme styles
+:host-context(.dark-theme) {
+  .sidenav {
+    background-color: #303030;
+    border-right-color: rgba(255, 255, 255, 0.12);
+  }
+  
+  .footer-credit {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+// Active navigation item
+mat-nav-list a.active {
+  background-color: rgba(25, 118, 210, 0.1);
+  color: #1976d2;
+  
+  mat-icon {
+    color: #1976d2;
+  }
+}
+
+:host-context(.dark-theme) mat-nav-list a.active {
+  background-color: rgba(25, 118, 210, 0.2);
+  color: #64b5f6;
+  
+  mat-icon {
+    color: #64b5f6;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .content {
+    padding: 80px 16px 16px;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+  
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-title {
+    font-size: 1rem;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

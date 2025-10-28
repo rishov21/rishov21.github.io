@@ -1,0 +1,306 @@
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+// Hero Section
+.hero-section {
+  text-align: center;
+  padding: 40px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.hero-icon {
+  font-size: 3rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+// Section Titles
+.section-title {
+  font-size: 2.4rem;
+  font-weight: 300;
+  text-align: center;
+  color: #333;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+}
+
+.feature-card {
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.feature-icon {
+  margin-bottom: 16px;
+  
+  mat-icon {
+    font-size: 3rem;
+    width: 3rem;
+    height: 3rem;
+    color: #1976d2;
+  }
+}
+
+.feature-title {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.feature-description {
+  color: #666;
+  line-height: 1.5;
+}
+
+.start-card {
+  margin-bottom: 24px;
+}
+
+.code-block {
+  position: relative;
+  background-color: #263238;;
+  border-radius: 8px;
+  padding: 16px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  overflow-x: auto;
+  
+  code {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+}
+
+.copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  color: #aed581;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// Try It Section
+.try-it-section {
+  margin-bottom: 80px;
+}
+
+.demo-card {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.demo-container {
+  text-align: center;
+}
+
+.demo-input {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 24px;
+}
+
+.selected-date {
+  margin-top: 16px;
+  
+  mat-chip {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}
+
+// Next Steps Section
+.next-steps-section {
+  margin-bottom: 40px;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.step-card {
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.step-icon {
+  font-size: 3rem;
+  width: 3rem;
+  height: 3rem;
+  color: #1976d2;
+  margin-bottom: 16px;
+}
+
+.step-card h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.step-card p {
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+// Dark theme styles
+:host-context(.dark-theme) {
+  .section-title {
+    color: #fff;
+  }
+  
+  .feature-title {
+    color: #fff;
+  }
+  
+  .feature-description {
+    color: #ccc;
+  }
+  
+  .step-card h3 {
+    color: #fff;
+  }
+  
+  .step-card p {
+    color: #ccc;
+  }
+  
+  .code-block {
+    background-color: #2d2d2d;
+    color: #f8f8f2;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .home-container {
+    padding: 0 16px;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .hero-icon {
+    font-size: 2rem;
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 40px 0;
+  }
+  
+  .hero-title {
+    font-size: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+
+
+.datepicker-container {
+  display: flex;
+  justify-content: center;
+  gap: 14rem;
+  flex-wrap: wrap;
+}
+
+.datepicker-center {
+  display: flex;
+  // position: fixed;
+  justify-content: center;   // center horizontally
+}
+
+rtc-nepali-datepicker {
+  width: 264px;
+}
+
+.code-font {
+  font-size: 16px;
+  color: #aed581;
+}
+
+

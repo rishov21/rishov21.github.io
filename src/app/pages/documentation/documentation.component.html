@@ -1,0 +1,103 @@
+<div class="home-container">
+  <div class="documentation-container" style="margin-top: 60px;">
+    <div class="documentation-header">
+      <h1 class="page-title">
+        <mat-icon>api</mat-icon>
+        Documentation
+      </h1>
+    </div>
+  </div>
+</div>
+
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened style="margin-bottom: 62px; margin-top:126px; position: fixed;">
+    <div class="sidebar">
+      <mat-form-field class="search-field">
+        <mat-label>Search functions</mat-label>
+        <input matInput [(ngModel)]="searchQuery" placeholder="Type to search...">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+
+      <mat-nav-list>
+        @for (fn of filteredFunctions(); track fn.id) {
+        <mat-list-item (click)="scrollToFunction(fn.id)" class="function-item">
+          <div class="function-list-content">
+            <span class="function-name">{{ fn.name }}</span>
+          </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        }
+        @if (filteredFunctions().length === 0) {
+        <mat-list-item>
+          <span class="no-results">No functions found</span>
+        </mat-list-item>
+        }
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="content">
+      @for (fn of filteredFunctions(); track fn.id) {
+      <mat-card [id]="fn.id" class="function-card">
+        <mat-card-header style="margin-bottom: 6px;">
+          <mat-card-title>{{ fn.name }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="section">
+            <strong>Description: </strong> <span>{{ fn.description }}</span>
+          </div>
+          <div class="section">
+            <pre class="example-code" style="padding: 10px 16px;">{{ fn.code }}</pre>
+          </div>
+
+          <div class="section mb-3">
+            <div class="fw-bold">Parameters</div>
+            @if (fn.parameters.length > 0) {
+            <table class="params-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (param of fn.parameters; track param.name) {
+                <tr>
+                  <td><code>{{ param.name }}</code></td>
+                  <td><code>{{ param.type }}</code></td>
+                  <td>{{ param.description || '-' }}</td>
+                </tr>
+                }
+              </tbody>
+            </table>
+            } @else {
+            <p class="no-params">No parameters</p>
+            }
+          </div>
+
+
+          <div class="section">
+            <div class="fw-bold">Returns</div>
+            <p><code>{{ fn.returns }}</code></p>
+          </div>
+
+          <div class="section">
+            <div class="fw-bold">Example</div>
+            <pre class="example-code">{{ fn.example }}</pre>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      }
+
+      @if (filteredFunctions().length === 0) {
+      <div class="no-results-content">
+        <mat-icon>search_off</mat-icon>
+        <h2>No functions found</h2>
+        <p>Try adjusting your search query</p>
+      </div>
+      }
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
