@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to Angular Nepali DatePicker Calendar 👋</h1>
 <p>
-  <img alt="Release" src="https://img.shields.io/badge/Release-v2000.0.1-blueviolet.svg"
+  <img alt="Release" src="https://img.shields.io/badge/Release-v1.0.4-blueviolet.svg"
   <a href="https://github.com/rishov21/angular-nepali-datepicker/blob/master/README.md" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/Documentation-Available-orange.svg" />
   </a>
